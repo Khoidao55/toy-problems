@@ -76,6 +76,14 @@ class BST {
   }
 }
 
+/*
+            10
+        6       15
+      3  8        20
+
+  queue = []
+  data = [10, 6, 15, 3, 8, 20]
+*/
 
 var tree = new BST();
 tree.insert(10);
