@@ -66,11 +66,9 @@ class BST {
     while(queue.length) {
       node = queue.shift();
       data.push(node);
-      if(node.left !== null) {
-        queue.push(node.left);
-      } if(node.right !== null) {
-        queue.push(node.right);
-      }
+
+      if(node.left) queue.push(node.left);
+      if(node.right) queue.push(node.right);
     }
     return data;
   }
