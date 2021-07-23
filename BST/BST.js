@@ -71,6 +71,37 @@ class BST {
     }
     return data;
   }
+
+  DFS_preOrder() {
+    const data = [];
+    function traverse(node) {
+      data.push(node.value);
+      node.left && traverse(node.left);
+      node.right && traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
+  DFS_postOrder() {
+    const data = [];
+    function traverse(node) {
+      node.left && traverse(node.left);
+      node.right && traverse(node.right);
+      data.push(node.value);
+    }
+    traverse(this.root);
+    return data;
+  }
+  DFS_inOrder() {
+    const data = [];
+    function traverse(node) {
+      node.left && traverse(node.left);
+      data.push(node.value);
+      node.right && traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
 }
 
 /*
@@ -91,4 +122,4 @@ tree.insert(8);
 tree.insert(20);
 
 //console.log(tree);
-console.log('this is the data', tree.BFS());
+console.log('this is the data', tree.DFS_inOrder());
