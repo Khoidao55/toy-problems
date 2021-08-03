@@ -30,7 +30,6 @@ n == nums.length
   let changeCounter = 0;
   let loop = 0;
   while(loop < nums.length) {
-
   }
   console.log(nums);
   if(changeCounter > 1) {
