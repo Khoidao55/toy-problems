@@ -4,7 +4,6 @@ const findIsland = (grid) => {
     for (let rowIdx in grid) {
         for (let colIdx in grid[rowIdx]) {
             if (grid[rowIdx][colIdx] === '1') {
-                debugger;
                 countIsland++;
                 flood(parseInt(rowIdx), parseInt(colIdx), grid);
             }
