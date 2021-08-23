@@ -6,6 +6,7 @@ const sudokuSolver = (board) => {
 }
 
 const recurseSudoku = (row, col, board) => {
+  debugger;
   if(col === 9) {
     return board;
   }
@@ -14,20 +15,35 @@ const recurseSudoku = (row, col, board) => {
 
   if(board[row][col] === '.') {
     for(let i = 1; i <= 9; i++) {
-      board[row][col] = i;
-      recurseSudoku(row, col + 1, board);
+      i = i.toString();
+      if(columnValidity(board, row, col, i) && rowValidity(board, row, col, i)){
+        board[row][col] = i;
+        recurseSudoku(row, col + 1, board);
+      } else { // should fix
+        return;
+      }
     }
   } else {
     recurseSudoku(row, col + 1, board);
   }
 }
 
-const columnValidity = () => {
-
+const columnValidity = (board, row, col, num) => {
+  for(let i = 0; i < board.length; i++) {
+    if(board[i][col] === num) {
+      return false;
+    }
+  }
+  return true;
 }
 
-const rowValidity = () => {
-
+const rowValidity = (board, row, col, num) => {
+  for(let i = 0; i < board[row].length; i++) {
+    if(board[row][i] === num) {
+      return false;
+    }
+  }
+  return true;
 }
 
 const board = [
