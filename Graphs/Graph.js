@@ -27,6 +27,22 @@ class Graph {
     }
     delete this.adjacencyList[vertex];
   }
+
+  dfsVisit(vertex) {
+    let visitedArray = [];
+
+    let recurseDFS = (node) => {
+      visitedArray.push(node);
+      this.adjacencyList[node].visited = true;
+      for(let neighbor of this.adjacencyList[node]) {
+        if(!this.adjacencyList[neighbor].visited) {
+          recurseDFS(neighbor);
+        }
+      }
+    }
+    recurseDFS(vertex);
+    return visitedArray;
+  }
 }
 
 
@@ -45,4 +61,5 @@ graph.addEdge(3, 4);
 graph.addEdge(3, 5);
 graph.addEdge(4, 6);
 graph.addEdge(5, 6);
+console.log(graph.dfsVisit(1));
 console.log(graph);
