@@ -32,17 +32,10 @@ class Graph {
 
 const graph = new Graph();
 
-graph.addVertex("Tokyo");
-graph.addVertex("Dallas");
-graph.addVertex("Aspen");
-graph.addVertex("Hong Kong");
-graph.addVertex("Los Angeles");
-graph.addEdge("Tokyo", "Dallas");
-graph.addEdge("Tokyo", "Hong Kong");
-graph.addEdge("Hong Kong", "Dallas");
-graph.addEdge("Dallas", "Aspen");
-graph.addEdge("Dallas", "Los Angeles");
-graph.addEdge("Hong Kong", "Los Angeles");
+graph.addVertex(1);
+graph.addVertex(2);
+graph.addVertex(3);
+graph.addVertex(4);
+graph.addVertex(5);
+graph.addVertex(6);
 console.log(graph);
-graph.removeVertex("Hong Kong");
-console.log('-----', graph);
