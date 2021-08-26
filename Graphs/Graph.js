@@ -45,20 +45,21 @@ class Graph {
   }
 
   contains(target) {
-    let containedTarget = false;
+    let contained = false;
+    let visistedNodes = new Set();
     let recurseDFS = (node) => {
-      if(target === node) {
-        containedTarget = true;
-      }
-      this.adjacencyList[node].visited = true;
+      if(target === node) contained = true;
+      if(visistedNodes.has(node)) return false;
+      visistedNodes.add(node);
       for(let neighbor of this.adjacencyList[node]) {
-        if(!this.adjacencyList[neighbor].visited) {
-          recurseDFS(neighbor);
+        if(recurseDFS(neighbor)) {
+          contained = true;
         }
       }
+      return false;
     }
     recurseDFS(1);
-    return containedTarget;
+    return contained;
   }
 
   bfs(node) {
@@ -96,6 +97,6 @@ graph.addEdge(3, 5);
 graph.addEdge(4, 6);
 graph.addEdge(5, 6);
 //console.log(graph.dfsVisit(1));
-//console.log(graph.contains(7));
-console.log(graph.bfs(1));
+console.log(graph.contains(7));
+// console.log(graph.bfs(1));
 console.log(graph);
