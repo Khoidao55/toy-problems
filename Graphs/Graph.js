@@ -43,6 +43,40 @@ class Graph {
     recurseDFS(vertex);
     return visitedArray;
   }
+
+  contains(target) {
+    let containedTarget = false;
+    let recurseDFS = (node) => {
+      if(target === node) {
+        containedTarget = true;
+      }
+      this.adjacencyList[node].visited = true;
+      for(let neighbor of this.adjacencyList[node]) {
+        if(!this.adjacencyList[neighbor].visited) {
+          recurseDFS(neighbor);
+        }
+      }
+    }
+    recurseDFS(1);
+    return containedTarget;
+  }
+
+  bfs(node) {
+    let graphQueue = [];
+    let bfsData = [];
+    graphQueue.push(node);
+    while(graphQueue.length) {
+      let currentNode = graphQueue.pop();
+      bfsData.push(currentNode);
+      for(let neighbors of this.adjacencyList[currentNode]) {
+        if(!this.adjacencyList[neighbors].visited) {
+          this.adjacencyList[neighbors].visited = true;
+          graphQueue.push(neighbors);
+        }
+      }
+    }
+    return bfsData;
+  }
 }
 
 
@@ -61,5 +95,7 @@ graph.addEdge(3, 4);
 graph.addEdge(3, 5);
 graph.addEdge(4, 6);
 graph.addEdge(5, 6);
-console.log(graph.dfsVisit(1));
+//console.log(graph.dfsVisit(1));
+//console.log(graph.contains(7));
+console.log(graph.bfs(1));
 console.log(graph);
