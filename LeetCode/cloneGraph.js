@@ -22,7 +22,11 @@ let copiedNode: Node = new Node(node.val, []);
   return copiedNode;
 };
 
-function dfsGraph(map: object, node: Node | null, copyNode: Node | null): void {
+function dfsGraph(
+  map: {
+  [key: any] : [value: Node]
+  },
+  node: Node | null, copyNode: Node | null): void {
   for(let neighbor of node.neighbors) {
       if(map[neighbor.val]) {
           copyNode.neighbors.push(map[neighbor.val]);

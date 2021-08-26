@@ -66,7 +66,7 @@ class Graph {
     let bfsData = [];
     graphQueue.push(node);
     while(graphQueue.length) {
-      let currentNode = graphQueue.pop();
+      let currentNode = graphQueue.shift();
       bfsData.push(currentNode);
       for(let neighbors of this.adjacencyList[currentNode]) {
         if(!this.adjacencyList[neighbors].visited) {
