@@ -2,12 +2,13 @@ const shortestPath = (edges, nodeA, nodeB) => {
   let visited = new Set();
   let shortestPath = Infinity;
   let graph = generateGraph(edges);
-  let BFSQueue = [{nodeName: nodeA, dist: 0}];
+  let BFSQueue = [{ nodeName: nodeA, dist: 0 }];
 
-  while(BFSQueue.length > 0) {
+  while(BFSQueue.length) {
     let currentNode = BFSQueue.shift();
     if(visited.has(currentNode.nodeName)) continue;
     visited.add(currentNode.nodeName);
+
     if(currentNode.nodeName === nodeB) {
       shortestPath = Math.min(shortestPath, currentNode.dist);
       return shortestPath;
