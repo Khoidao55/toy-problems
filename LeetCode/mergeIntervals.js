@@ -1,3 +1,8 @@
+//time com: O(n log n) due to sorting
+//space com: O(n) due to creating a new array to store subarrays.
+
+
+
 var merge = function(intervals) {
   intervals.sort((a, b) => a[0] - b[0])
   const overlappingArr = [intervals[0]];
