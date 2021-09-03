@@ -16,7 +16,7 @@ const minimumIsland = (grid) => {
 
 const explore = (grid, row, col, visited) => {
   const pos = row + ',' + col;
-  if(visited.has(pos)) return 0;
+  if(visited.has(pos)) return 0;/
   visited.add(pos);
 
   if(grid[row] === undefined || grid[row][col] === undefined || grid[row][col] === 'W') {
@@ -59,3 +59,4 @@ const explore = (grid, row, col, visited) => {
 module.exports = {
   minimumIsland
 };
+
