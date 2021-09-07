@@ -20,4 +20,6 @@ const findAverage = (arr, k) => {
 
 const arr = [1,3,2,6,-1,4,1,8,2];
 
-console.log(findAverage(arr, 5));
+//console.log(findAverage(arr, 5));
+
+module.exports = findAverage;

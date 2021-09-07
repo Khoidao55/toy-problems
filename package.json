@@ -1,0 +1,23 @@
+{
+  "name": "toy-problems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "encoding.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khoidao55/toy-problems.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khoidao55/toy-problems/issues"
+  },
+  "homepage": "https://github.com/Khoidao55/toy-problems#readme",
+  "devDependencies": {
+    "jest": "^27.1.0"
+  }
+}
