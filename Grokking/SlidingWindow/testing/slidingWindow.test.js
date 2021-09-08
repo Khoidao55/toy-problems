@@ -1,5 +1,6 @@
 const maxSumSubArr = require('../maxSumSubarray.js');
 const smallestSubArr = require('../smallestSubArr.js');
+const distinctSubstring = require('../distinctSubstring.js');
 
 describe('MaxSumSubArr', () => {
   test('return the max sum of continuous subarrays: expects 9', () => {
@@ -19,5 +20,20 @@ describe('smallestSubArr', () => {
   });
   test('returns the # of elements in the smallest subarray to = k or higher: expects 3', () => {
     expect(smallestSubArr([3, 4, 1, 1, 6], 8)).toBe(3);
+  });
+})
+
+describe('distinctSubstring', () => {
+  test('returns the length of the longest substring with distinct k integers: expects 4', () => {
+    expect(distinctSubstring("araaci", 2)).toBe(4);
+  });
+  test('returns the length of the longest substring with distinct k integers: expects 4', () => {
+    expect(distinctSubstring("araaci", 1)).toBe(2);
+  });
+  test('returns the length of the longest substring with distinct k integers: expects 4', () => {
+    expect(distinctSubstring("cbbebi", 3)).toBe(5);
+  });
+  test('returns the length of the longest substring with distinct k integers: expects 4', () => {
+    expect(distinctSubstring("cbbebi", 10)).toBe(6);
   });
 })
