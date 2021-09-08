@@ -3,6 +3,7 @@ const smallestSubArr = require('../smallestSubArr.js');
 const distinctSubstring = require('../distinctSubstring.js');
 const maxFruitBasket = require('../fruitBasket.js');
 const noRepeats = require('../noRepeatChar.js');
+const longestSubstring = require('../longestSubstring.js');
 
 describe('MaxSumSubArr', () => {
   test('return the max sum of continuous subarrays: expects 9', () => {
@@ -55,6 +56,18 @@ describe('length of longest substring with no repeats', () => {
   })
   test('should return length of substring: expects 2', () => {
     expect(noRepeats("abbbb")).toBe(2);
+  })
+  test('should return length of substring: expects 3', () => {
+    expect(noRepeats("abccde")).toBe(3);
+  })
+})
+
+describe('length of longest substring with replacement', () => {
+  test('should return length of substring: expects 5, () => {
+    expect(noRepeats("aabccbb")).toBe(5);
+  })
+  test('should return length of substring: expects 4', () => {
+    expect(noRepeats("abbbb")).toBe(4);
   })
   test('should return length of substring: expects 3', () => {
     expect(noRepeats("abccde")).toBe(3);
