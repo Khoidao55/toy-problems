@@ -63,13 +63,13 @@ describe('length of longest substring with no repeats', () => {
 })
 
 describe('length of longest substring with replacement', () => {
-  test('should return length of substring: expects 5, () => {
-    expect(noRepeats("aabccbb")).toBe(5);
+  test('should return length of substring: expects 5', () => {
+    expect(longestSubstring("aabccbb", 2)).toBe(5);
   })
   test('should return length of substring: expects 4', () => {
-    expect(noRepeats("abbbb")).toBe(4);
+    expect(longestSubstring("abbcb", 1)).toBe(4);
   })
   test('should return length of substring: expects 3', () => {
-    expect(noRepeats("abccde")).toBe(3);
+    expect(longestSubstring("abccde", 1)).toBe(3);
   })
 })
