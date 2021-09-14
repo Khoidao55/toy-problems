@@ -26,18 +26,15 @@ const permutationString = (string, pattern) => {
   }
 
   let windowStart = 0;
-  let patternCopy = { ...patternObj };
-  let patterCopySize = Object.values(patternCopy).reduce((a, c) => a + c, 0);
+  let matched = 0;
   for(let windowEnd = 0; windowEnd < string.length; windowEnd++) {
     let startChar = string[windowEnd];
-    if(startChar in patternCopy && patternCopy[startChar] > 0) {
-      if(patternCopySize === 0) {
-        return true;
-      }
-      patternCopy[startChar]--;
+    if(matched === Object.keys(patternObj).length) return true;
+    if(startChar in patternObj && patternObj[startChar] > 0) {
+      matched++;
     } else {
       windowStart++;
-      patternCopy = { ...patternObj };
+      matched = 0;
     }
   }
   return false;
