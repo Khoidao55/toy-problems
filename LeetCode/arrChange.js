@@ -20,6 +20,3 @@ const findCombo = (arr, largestEl, sum) => {
     if(isValid) return true;
   }
 }
-
-
-console.log(arrayChange([2,3,1,6]));
