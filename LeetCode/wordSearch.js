@@ -1,9 +1,4 @@
-/**
- * @param {character[][]} board
- * @param {string} word
- * @return {boolean}
- */
- var exist = function(board, word) {
+var exist = function(board, word) {
   let memo = new Set();
   let wordArr = word.split('');
   for(let row = 0; row < board.length; row++) {
@@ -16,24 +11,29 @@
 };
 
 const wordSearch = (row, col, board, visited, wordArr) => {
-  let position = row + ',' + col;
-  if(visited.has(position)) return false;
-  visited.add(position);
-  if(board[row] === undefined || board[col] === undefined || board[row][col] !== wordArr[0]) return false;
-  let char = board[row][col];
-  if(char === wordArr[0] && wordArr.length === 1) return true;
+    let possibleVisit = {};
+    let position = row + ',' + col;
+    if(possibleVisit.has(position)) return false;
+    if(board[row] === undefined || board[row][col] === undefined || board[row][col] !== wordArr[0]) return false;
+    let char = board[row][col];
+    if(char === wordArr[0] && wordArr.length === 1) return true;
+    possibleVisit.add(position);
   for(let i = 0; i < wordArr.length; i++) {
       let remaining = wordArr.slice(i + 1);
-      let foundWord = wordSearch(row + 1, col, board, visited, remaining);
+      let foundWord = wordSearch(row + 1, col, board, possibleVisit, remaining);
       if(foundWord) return true;
-      foundWord = wordSearch(row - 1, col, board, visited, remaining);
+      foundWord = wordSearch(row - 1, col, board, possibleVisit, remaining);
       if(foundWord) return true;
-      foundWord = wordSearch(row, col + 1, board, visited, remaining);
+      foundWord = wordSearch(row, col + 1, board, possibleVisit, remaining);
       if(foundWord) return true;
-      foundWord = wordSearch(row, col - 1, board, visited, remaining);
-      if(foundWord) return true;
+      foundWord = wordSearch(row, col - 1, board, possibleVisit, remaining);
+      if(foundWord) {
+          return true;
+      } else {
+          return;
+      }
   }
 }
 
-console.log(exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],
-"SEE"))
+console.log(exist([["C","A","A"],["A","A","A"],["B","C","D"]],
+"AAB"))
